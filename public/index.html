@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scicalc</title>
+    <link rel="stylesheet" href="simple_form.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Fira+Sans&family=Lora:wght@700&family=PT+Sans&display=swap');
+    </style> 
+</head>
+<body>
+    <article>
+        <main>
+            <h1>Scicalc</h1>
+            <p>
+                This is a scientific calculator that handles inputs with uncertainties.
+                If you have a measurement of, say, (100 ± 13) mL of water, and you add (20 ± 3) mL to it, what would be the result, given in the same notation? <br><br>
+                Well, what are you waiting for? try to evaluate it in the input field below!
+            </p>
+            
+
+            <form id="sci_expr_id" class="siform" autocomplete="off">
+                <ol class="question">
+                    <li class="current">
+                        <label for="sci_expression">Type an expression:</label>
+                        <input type="text" id="sci_expression" name="expr" value="(100 ± 13) + (20 ± 3)">
+                    </li>
+                </ol>
+                <input type="submit" value="Evaluate" class="btn">
+                <p>
+                    <mark class="red">Result = </mark>
+                    <mark id="expression_value" class="black"></mark>
+                </p>
+            </form>
+
+
+            <h1>Features</h1>
+            <p>
+                Currently, this calculator supports:
+                <ul>
+                    <li>
+                        Basic floating-point numbers(AKA 'real numbers'), such as <mark class="mono">23.0</mark>, <mark class="mono">42</mark>, <mark class="mono">-.033</mark>
+                    </li>
+                    <li>
+                        The numeric constants <mark class="mono">e</mark>("Euler's number") and <mark class="mono">π</mark>(greek letter "pi")
+                    </li>
+                    <li>
+                        Quantities with uncertatinties of the form <mark class="mono">x ± y</mark>, such as <mark class="mono">23.0 ± 1.0</mark> and <mark class="mono">-1.000 ± 0.033</mark>
+                    </li>
+                    <li>
+                        Basic arithmetic operations, i.e. addition, subtraction, multiplication and division
+                    </li>
+                    <li>
+                        Parenthesized and nested expressions, such as <mark class="mono">((42 ± 3) / (1 ± 0.1)) * 2.0 - π * e</mark>
+                    </li>
+                </ul>
+            </p>
+            <h1>Remarks</h1>
+            Note that some measurements may not make any sense at all, due to their inaccuracies. <br>
+            Quantities such as <mark class="mono">0.1 ± 13</mark> are very inaccurate(the error is two orders of magnitude bigger than the mean value!), 
+            therefore(due to error propagation), the results of any expressions involving these quantities will be even more innacurate.
+        </main>
+        <footer>
+            <p>Check out the rust crate that gives life to this project on <a href="https://crates.io/crates/scicalc-rs">crates.io</a>!</p>
+        </footer> 
+    </article>
+
+    <script type="application/javascript" src="formRequest.js"></script>
+
+
+</body>
+</html>
