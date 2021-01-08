@@ -1,2 +1,2 @@
 [toolchain]
-channel = "stable-2021-01-01"
+channel = "stable"
