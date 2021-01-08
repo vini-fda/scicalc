@@ -26,7 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - uses: actions-rs/cargo@v1.0.1
-    - run: cargo install scicalc-rs
+      with:
+          use-cross: false
+          command: install
+          args: scicalc-rs
     - run: npm ci
     - run: npm run build --if-present
     #- run: npm test
