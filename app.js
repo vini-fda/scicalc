@@ -26,7 +26,7 @@ router.post('/parser', (req, res) => {
     console.log(req.body);
     const expression = req.body.expr;
 
-    exec(`scicalc-rs "${expression}"`, (error, stdout, stderr) => {
+    exec(`./scicalc-rs "${expression}"`, (error, stdout, stderr) => {
         if (error) {
           console.error(`error: ${error.message}`);
           return;
