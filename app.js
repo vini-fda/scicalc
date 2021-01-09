@@ -5,10 +5,13 @@ const upload = multer();
 const router = express.Router();
 const app = express();
 let port = process.env.PORT;
+
+// Port used for local development
 if (port == null || port == "") {
 	port = 8000;
 }
 
+// Expose static files for the website's front-end
 app.use('/', express.static('public'));
 
 // for parsing application/json
@@ -21,8 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(upload.array()); 
 app.use(express.static('public'));
 
+//Expose parser for POST requests
 router.post('/parser', (req, res) => {
-    //do parsing
     console.log(req.body);
     const expression = req.body.expr;
 
@@ -36,7 +39,8 @@ router.post('/parser', (req, res) => {
           console.error(`stderr: ${stderr}`);
           return;
         }
-        console.log(`${stdout}`);
+        // Debug message
+        //console.log(`${stdout}`);
 
         res.send(stdout);
     });
@@ -44,4 +48,5 @@ router.post('/parser', (req, res) => {
 
 app.use('/', router);
 
-app.listen(port, () => console.log(`Application listening on port ${port}!`));
+// Debug message
+//app.listen(port, () => console.log(`Application listening on port ${port}!`));
