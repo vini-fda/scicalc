@@ -48,5 +48,5 @@ router.post('/parser', (req, res) => {
 
 app.use('/', router);
 
-// Debug message
-//app.listen(port, () => console.log(`Application listening on port ${port}!`));
+// Listen on port 'port', succesfully running the app
+app.listen(port, () => console.log(`Application listening on port ${port}!`));
