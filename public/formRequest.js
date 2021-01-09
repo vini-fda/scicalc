@@ -5,7 +5,7 @@ function formSubmit(event) {
     request.onload = function() { // request successful
         // we can use server response to our request now
         const paragraph = document.getElementById("expression_value");
-        paragraph.innerHTML = request.responseText;
+        paragraph.value = request.responseText;
         console.log(request.responseText);
     };
 

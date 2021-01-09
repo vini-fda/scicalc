@@ -6,36 +6,37 @@
     <title>Scicalc</title>
     <link rel="stylesheet" href="simple_form.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Fira+Sans&family=Lora:wght@700&family=PT+Sans&display=swap');
-    </style> 
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Fira+Sans&family=Lora:wght@700&family=PT+Sans&family=Noto+Serif:ital@0;1&display=swap');
+    </style>
 </head>
 <body>
     <article>
         <main>
             <h1>Scicalc</h1>
             <p>
-                This is a scientific calculator that handles inputs with uncertainties.
+                This is a scientific calculator that handles inputs with <i>uncertainties</i>.
                 If you have a measurement of, say, (100 ± 13) mL of water, and you add (20 ± 3) mL to it, what would be the result, given in the same notation? <br><br>
-                Well, what are you waiting for? try to evaluate it in the input field below!
+                <i>Well, what are you waiting for? try to evaluate it in the input field below!</i>
             </p>
             
+            <h2>Try it out!</h2>
+            <form id="sci_expr_id" class="simple-form" autocomplete="off">
+                <div class="input-box">
+                    <label for="sci_expression" class="mono left-label">Expression: </label>
+                    <input type="text" id="sci_expression" class="expr-input" name="expr" value="(100 ± 13) + (20 ± 3)">
+                    <input type="submit" value="Evaluate" class="btn-eval">
+                </div>
 
-            <form id="sci_expr_id" class="siform" autocomplete="off">
-                <ol class="question">
-                    <li class="current">
-                        <label for="sci_expression">Type an expression:</label>
-                        <input type="text" id="sci_expression" name="expr" value="(100 ± 13) + (20 ± 3)">
-                    </li>
-                </ol>
-                <input type="submit" value="Evaluate" class="btn">
-                <p>
-                    <mark class="red">Result = </mark>
-                    <mark id="expression_value" class="black"></mark>
-                </p>
+
+                
+                <div class="result-box">
+                    <label for="expression_value" class="red left-label">Result = </label>
+                    <input id="expression_value" type="text" value="0.0" class="expr-output" readonly>
+                </div>
             </form>
 
 
-            <h1>Features</h1>
+            <h2>Features</h2>
             <p>
                 Currently, this calculator supports:
                 <ul>
@@ -56,7 +57,7 @@
                     </li>
                 </ul>
             </p>
-            <h1>Remarks</h1>
+            <h2>Remarks</h2>
             Note that some measurements may not make any sense at all, due to their inaccuracies. <br>
             Quantities such as <mark class="mono">0.1 ± 13</mark> are very inaccurate(the error is two orders of magnitude bigger than the mean value!), 
             therefore(due to error propagation), the results of any expressions involving these quantities will be even more innacurate.
